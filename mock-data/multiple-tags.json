@@ -1,0 +1,240 @@
+{
+    "definitions": {
+        "CartModel": {
+            "properties": {
+                "cart": {
+                    "type": "string"
+                }
+            }
+        },
+        "ItemModel": {
+            "properties": {
+                "item": {
+                    "$ref": "#/definitions/IdQuantityOptionsModel"
+                }
+            },
+            "required": [
+                "item"
+            ]
+        },
+        "IdQuantityOptionsModel": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "options": {
+                    "$ref": "#/definitions/EmptyModel"
+                },
+                "quantity": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "id",
+                "quantity",
+                "options"
+            ]
+        },
+        "EmptyModel": {
+            "properties": {}
+        }
+    },
+    "info": {
+        "description": "API Documentation",
+        "title": "ACME API",
+        "version": "v1.2.3"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "render"
+                ]
+            }
+        },
+        "/_version": {
+            "get": {
+                "produces": [
+                    "text/html",
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "render"
+                ]
+            }
+        },
+        "/admin": {
+            "get": {
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "render"
+                ]
+            }
+        },
+        "/api/shopping_cart": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "CartModel",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CartModel"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "api"
+                ]
+            }
+        },
+        "/api/shopping_cart/add": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "ItemModel",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ItemModel"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "api",
+                    "airshop"
+                ]
+            }
+        },
+        "/api/widgets": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": 1,
+                        "in": "query",
+                        "name": "page",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "default": 50,
+                        "in": "query",
+                        "maximum": 1000,
+                        "name": "limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "default": 0,
+                        "in": "query",
+                        "minimum": 0,
+                        "name": "offset",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "default": "id",
+                        "in": "query",
+                        "name": "sort",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "default": "asc",
+                        "in": "query",
+                        "name": "order",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "api"
+                ]
+            }
+        },
+        "/api/widgets/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "params",
+                        "name": "id",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "api"
+                ]
+            }
+        }
+    },
+    "swagger": "2.0",
+    "tags": [
+        {
+            "description": "API endpoints",
+            "name": "api"
+        },
+        {
+            "description": "Server side rendered routes",
+            "name": "render"
+        }
+    ]
+}

@@ -4,12 +4,40 @@
   "description": "Alternative interface for swagger",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "webpack --config webpack.conf.js",
+    "dev": "webpack-dev-server --quiet --config webpack.conf.js --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mock-server": "python -m SimpleHTTPServer 4000",
+    "start": "npm run mock-server & npm run dev"
   },
   "keywords": [
     "swagger",
     "ui"
   ],
   "author": "Jon Borgonia <jon@gomagames.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-inferno": "1.3.0-beta17",
+    "babel-plugin-syntax-jsx": "^6.3.13",
+    "babel-plugin-syntax-object-rest-spread": "^6.3.13",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "eslint": "^1.10.3",
+    "glob": "^7.1.1",
+    "html-webpack-plugin": "^2.26.0",
+    "inferno-devtools": "1.0.0-beta42",
+    "url": "^0.11.0",
+    "webpack": "^1.12.11",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "history": "^4.4.0",
+    "inferno": "1.0.0-beta42",
+    "inferno-create-element": "1.0.0-beta42",
+    "inferno-router": "1.0.0-beta42"
+  }
 }
