@@ -1,0 +1,15 @@
+{
+  "name": "swagger-ui",
+  "version": "1.0.0",
+  "description": "Alternative interface for swagger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "swagger",
+    "ui"
+  ],
+  "author": "Jon Borgonia <jon@gomagames.com>",
+  "license": "MIT"
+}
