@@ -5,7 +5,10 @@ export default function ExplorePaths({ paths, definitions }){
   return (
     <ul>
       { Object.keys(paths).map( path =>
-        <Path path={path} definitions={definitions} />
+        <Path
+          pathName={path}
+          path={paths[path]}
+          definitions={definitions} />
       ) }
     </ul>
   );
