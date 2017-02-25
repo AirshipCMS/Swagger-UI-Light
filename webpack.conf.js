@@ -28,6 +28,11 @@ module.exports = {
 					return '/public/index.html';
 				}
       },
+      '/styles/styles.css': {
+				bypass: function (req, res, proxyOptions) {
+          return '/public/styles/styles.css';
+				}
+      },
       '/mock-data/**': {
         target: 'http://localhost:4000',
         secure: false

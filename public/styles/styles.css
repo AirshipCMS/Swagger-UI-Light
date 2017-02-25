@@ -1,0 +1,9 @@
+.path-detail-container {
+
+}
+.path-detail-container-visible {
+  display: inherit;
+}
+.path-detail-container-invisible {
+  display: none;
+}
