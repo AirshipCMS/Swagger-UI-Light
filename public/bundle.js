@@ -63,7 +63,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0805fc8c99c6df0afd8f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7040ba8068e06382e565"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/
@@ -593,7 +593,7 @@
 	
 	// inferno module
 	if (true) {
-	    __webpack_require__(10);
+	    __webpack_require__(12);
 	}
 	
 	// app components
@@ -3611,6 +3611,10 @@
 	
 	var _inferno2 = _interopRequireDefault(_inferno);
 	
+	var _Path = __webpack_require__(10);
+	
+	var _Path2 = _interopRequireDefault(_Path);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var createVNode = _inferno2.default.createVNode;
@@ -3619,7 +3623,11 @@
 	      definitions = _ref.definitions;
 	
 	  return createVNode(2, 'ul', null, Object.keys(paths).map(function (path) {
-	    return createVNode(2, 'li', null, path);
+	    return createVNode(16, _Path2.default, {
+	      'pathName': path,
+	      'path': paths[path],
+	      'definitions': definitions
+	    });
 	  }));
 	}
 
@@ -3629,10 +3637,124 @@
 
 	'use strict';
 	
-	module.exports = __webpack_require__(11);
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _inferno = __webpack_require__(1);
+	
+	var _inferno2 = _interopRequireDefault(_inferno);
+	
+	var _infernoComponent = __webpack_require__(6);
+	
+	var _infernoComponent2 = _interopRequireDefault(_infernoComponent);
+	
+	var _PathDetail = __webpack_require__(11);
+	
+	var _PathDetail2 = _interopRequireDefault(_PathDetail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var createVNode = _inferno2.default.createVNode;
+	
+	var Path = function (_Component) {
+	  _inherits(Path, _Component);
+	
+	  function Path() {
+	    _classCallCheck(this, Path);
+	
+	    var _this = _possibleConstructorReturn(this, (Path.__proto__ || Object.getPrototypeOf(Path)).call(this));
+	
+	    _this.state = {
+	      expanded: false
+	    };
+	
+	    _this.visibleClass = "path-detail-container path-detail-container-visible";
+	    _this.invisibleClass = "path-detail-container path-detail-container-invisible";
+	    return _this;
+	  }
+	
+	  _createClass(Path, [{
+	    key: 'getPathDetailContainerClass',
+	    value: function getPathDetailContainerClass() {
+	      return this.state.expanded ? this.visibleClass : this.invisibleClass;
+	    }
+	  }, {
+	    key: 'togglePathDetail',
+	    value: function togglePathDetail() {
+	      this.setState({ expanded: !this.state.expanded });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return createVNode(2, 'li', null, [createVNode(2, 'h4', null, this.props.pathName), createVNode(16, _PathDetail2.default, {
+	        'className': this.getPathDetailContainerClass(),
+	        'path': this.props.path,
+	        'definitions': this.props.definitions
+	      })], {
+	        'onClick': this.togglePathDetail.bind(this)
+	      });
+	    }
+	  }]);
+	
+	  return Path;
+	}(_infernoComponent2.default);
+	
+	exports.default = Path;
 
 /***/ },
 /* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = PathDetail;
+	
+	var _inferno = __webpack_require__(1);
+	
+	var _inferno2 = _interopRequireDefault(_inferno);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var createVNode = _inferno2.default.createVNode; /*
+	                                                  *
+	                                                            {"put":{"consumes":["application/json"],"parameters":[{"in":"body","name":"CartModel","required":false,"schema":{"$ref":"#/definitions/CartModel"}}],"produces":["application/json"],"responses":{"default":{"description":""}},"tags":["api"]}}
+	                                                 
+	                                                           {"get":{"parameters":[{"default":1,"in":"query","name":"page","required":false,"type":"integer"},{"default":50,"in":"query","maximum":1000,"name":"limit","required":false,"type":"integer"},{"default":0,"in":"query","minimum":0,"name":"offset","required":false,"type":"integer"},{"default":"id","in":"query","name":"sort","required":false,"type":"string"},{"default":"asc","in":"query","name":"order","required":false,"type":"string"}],"produces":["application/json"],"responses":{"default":{"description":""}},"tags":["api"]}}
+	                                                 
+	                                                 */
+	
+	function PathDetail(_ref) {
+	  var className = _ref.className,
+	      path = _ref.path,
+	      definitions = _ref.definitions;
+	
+	  return createVNode(2, 'div', {
+	    'className': className
+	  }, 'detail');
+	}
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	module.exports = __webpack_require__(13);
+
+/***/ },
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
