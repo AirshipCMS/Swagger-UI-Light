@@ -12,26 +12,6 @@ export default function PathDetail({ className, method, path, definitions }){
 
   return (
     <div className={ className }>
-      <dl>
-        <dt>Method</dt>
-        <dd>{ method }</dd>
-      </dl>
-      {
-        ( consumes ) ? (
-          <dl>
-            <dt>Consumes</dt>
-            <dd>{ consumes }</dd>
-          </dl>
-        ) : null
-      }
-      {
-        ( produces ) ? (
-          <dl>
-            <dt>Produces</dt>
-            <dd>{ produces }</dd>
-          </dl>
-        ) : null
-      }
       {
         ( parameters ) ? (
           <dl>
@@ -82,22 +62,6 @@ export default function PathDetail({ className, method, path, definitions }){
                 ) }
               </ul>
             </dd>
-          </dl>
-        ) : null
-      }
-      {
-        ( responses ) ? (
-          <dl>
-            <dt>Responses</dt>
-            <dd>{ responses }</dd>
-          </dl>
-        ) : null
-      }
-      {
-        ( tags ) ? (
-          <dl>
-            <dt>Tags</dt>
-            <dd>{ tags }</dd>
           </dl>
         ) : null
       }

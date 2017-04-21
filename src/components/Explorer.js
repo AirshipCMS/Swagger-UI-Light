@@ -85,6 +85,12 @@ export default class Explorer extends Component{
       .then(res => res.json())
       .then(res => {
         this.setState( res );
+        this.setState({
+          tags: res.tags.map( tag => {
+            tag.expanded = false;
+            return tag;
+          })
+        });
       })
       .catch(err => {
         let errors = err instanceof SyntaxError ?

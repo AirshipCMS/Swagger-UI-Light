@@ -56,7 +56,7 @@
                     }
                 },
                 "tags": [
-                    "render"
+                    "Render"
                 ]
             }
         },
@@ -72,7 +72,7 @@
                     }
                 },
                 "tags": [
-                    "render"
+                    "Render"
                 ]
             }
         },
@@ -87,7 +87,7 @@
                     }
                 },
                 "tags": [
-                    "render"
+                    "Render"
                 ]
             }
         },
@@ -115,7 +115,7 @@
                     }
                 },
                 "tags": [
-                    "api"
+                    "API"
                 ]
             }
         },
@@ -143,7 +143,7 @@
                     }
                 },
                 "tags": [
-                    "api",
+                    "API",
                     "airshop"
                 ]
             }
@@ -198,7 +198,7 @@
                     }
                 },
                 "tags": [
-                    "api"
+                    "API"
                 ]
             }
         },
@@ -221,7 +221,7 @@
                     }
                 },
                 "tags": [
-                    "api"
+                    "API"
                 ]
             }
         }
@@ -229,12 +229,12 @@
     "swagger": "2.0",
     "tags": [
         {
-            "description": "API endpoints",
-            "name": "api"
+            "description": "Endpoints for rendering Airship Pages, Collections, and other Components",
+            "name": "API"
         },
         {
-            "description": "Server side rendered routes",
-            "name": "render"
+            "description": "Endpoints for retrieving, showing, creating and deleting various Airship Pages, Collections, and other Component",
+            "name": "Render"
         }
     ]
 }

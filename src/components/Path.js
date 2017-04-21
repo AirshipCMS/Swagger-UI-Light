@@ -15,8 +15,8 @@ export default class Path extends Component{
       expanded : false
     };
 
-    this.visibleClass = "path-detail-container path-detail-container-visible";
-    this.invisibleClass = "path-detail-container path-detail-container-invisible";
+    this.visibleClass = "path-detail-container";
+    this.invisibleClass = "path-detail-container hidden";
 
     this.method = Object.keys(this.props.path)[0];
     this.className = `path path-method-${this.method}`;
@@ -35,10 +35,12 @@ export default class Path extends Component{
       <li
         className={ this.className }
         onClick={ this.togglePathDetail.bind(this) } >
-        <h4>
-          <span className="path-method-label">{ this.method }</span> ➡
-          <span className="path-name">{ this.props.pathName }</span>
-        </h4>
+        <div>
+          <h4 className="path-method-label">{ this.method }</h4>
+          <h4 className="path-name">{ this.props.pathName }</h4>
+          <h4>DESCRIPTION HERE</h4>
+          <h4>AUTH HERE</h4>
+        </div>
         <PathDetail
           className={ this.getPathDetailContainerClass() }
           path={ this.props.path }
