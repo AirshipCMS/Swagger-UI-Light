@@ -11,17 +11,13 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { connect } from 'inferno-redux';
-// import PathDetail from './PathDetail';
+import PathDetail from './PathDetail';
+import { TOGGLE_EXPAND_PATH } from '../store';
 
 class Path extends Component{
 
   constructor( props ) {
     super( props );
-    console.log(props);
-
-    // this.state = {
-    //   expanded : false
-    // };
 
     this.visibleClass = "path-detail-container";
     this.invisibleClass = "path-detail-container hidden";
@@ -31,22 +27,20 @@ class Path extends Component{
 
   getPathDetailContainerClass() {
     return this.props.path.expanded ? this.visibleClass : this.invisibleClass;
-    // return this.visibleClass;
   }
 
   togglePathDetail() {
-    // this.setState({ expanded : !this.state.expanded });
+    this.props.toggle_expand_path(this.props.path);
   }
 
-        // className={ this.className }
   render() {
-    // console.log(this.className);
     return (
       <li
+        className={ this.className }
         onClick={ this.togglePathDetail.bind(this) } >
         <div>
           <h4 className="path-method-label">{ this.props.path.method }</h4>
-          <h4 className="path-name">{ this.props.pathName }</h4>
+          <h4 className="path-name">{ this.props.path.name }</h4>
           <h4>DESCRIPTION HERE</h4>
           <h4>AUTH HERE</h4>
         </div>
@@ -62,8 +56,8 @@ class Path extends Component{
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggle_expand_tag: tag => {
-      dispatch({ type: 'nothing', tag })
+    toggle_expand_path: path => {
+      dispatch({ type:  TOGGLE_EXPAND_PATH, path })
     }
   };
 };

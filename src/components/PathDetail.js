@@ -1,13 +1,7 @@
 import Inferno from 'inferno';
 import Schema from './Schema';
 
-export default function PathDetail({ className, method, path, definitions }){
-  console.log(
-    className,
-    method,
-    path,
-    definitions
-  );
+export default function PathDetail({ className, path, definitions }){
   const {
     consumes,
     produces,
@@ -68,6 +62,38 @@ export default function PathDetail({ className, method, path, definitions }){
                 ) }
               </ul>
             </dd>
+          </dl>
+        ) : null
+      }
+      {
+        ( consumes ) ? (
+          <dl>
+            <dt>Consumes</dt>
+            <dd>{ consumes }</dd>
+          </dl>
+        ) : null
+      }
+      {
+        ( produces ) ? (
+          <dl>
+            <dt>Produces</dt>
+            <dd>{ produces }</dd>
+          </dl>
+        ) : null
+      }
+      {
+        ( responses ) ? (
+          <dl>
+            <dt>Responses</dt>
+            <dd>{ responses }</dd>
+          </dl>
+        ) : null
+      }
+      {
+        ( tags ) ? (
+          <dl>
+            <dt>Tags</dt>
+            <dd>{ tags }</dd>
           </dl>
         ) : null
       }

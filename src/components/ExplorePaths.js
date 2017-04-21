@@ -7,7 +7,6 @@ export default function ExplorePaths(props){
       { Object.keys(props.paths).map( path =>
         <Path
           {...props}
-          pathName={path}
           path={props.paths[path]}
         />
       ) }
