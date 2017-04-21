@@ -1,16 +1,15 @@
 import Inferno from 'inferno';
 import Path from './Path';
 
-export default function ExplorePaths({ paths, definitions, className, pathsExpandedClass, pathsExpanded }){
+export default function ExplorePaths(props){
   return (
-    <ul className={ className }>
-      { Object.keys(paths).map( path =>
+    <ul className={ props.className }>
+      { Object.keys(props.paths).map( path =>
         <Path
-          className={ pathsExpandedClass }
+          {...props}
           pathName={path}
-          path={paths[path]}
-          pathsExpanded={ pathsExpanded }
-          definitions={definitions} />
+          path={props.paths[path]}
+        />
       ) }
     </ul>
   );

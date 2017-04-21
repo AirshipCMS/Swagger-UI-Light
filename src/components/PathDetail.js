@@ -2,13 +2,19 @@ import Inferno from 'inferno';
 import Schema from './Schema';
 
 export default function PathDetail({ className, method, path, definitions }){
+  console.log(
+    className,
+    method,
+    path,
+    definitions
+  );
   const {
     consumes,
     produces,
     parameters,
     responses,
     tags
-  } = path[method];
+  } = path.definition;
 
   return (
     <div className={ className }>

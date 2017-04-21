@@ -42,6 +42,7 @@
     "history": "^4.6.1",
     "inferno": "^3.0.5",
     "inferno-create-element": "^3.0.5",
+    "inferno-redux": "^3.0.5",
     "inferno-router": "^3.0.5"
   }
 }

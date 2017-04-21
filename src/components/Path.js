@@ -1,55 +1,73 @@
+/*
+  /api/route : {
+    expanded : true,
+    method : "get",
+    definition : {
+      blah blah
+    }
+ }
+ */
+
 import Inferno from 'inferno';
 import Component from 'inferno-component';
-import PathDetail from './PathDetail';
+import { connect } from 'inferno-redux';
+// import PathDetail from './PathDetail';
 
-export default class Path extends Component{
+class Path extends Component{
 
   constructor( props ) {
     super( props );
+    console.log(props);
 
-    if( Object.keys(this.props.path).length !== 1 ){
-      throw new Error(`Unexpected length of path methods. Expected 1 key in Path.props.path, got ${ Object.keys(this.props.path).length } keys.\nKeys: ${ Object.keys(this.props.path).toString() }`)
-    }
-
-    this.state = {
-      expanded : false
-    };
+    // this.state = {
+    //   expanded : false
+    // };
 
     this.visibleClass = "path-detail-container";
     this.invisibleClass = "path-detail-container hidden";
 
-    this.method = Object.keys(this.props.path)[0];
-    this.className = `path path-method-${this.method}`;
+    this.className = `path path-method-${this.props.path.method}`;
   }
 
   getPathDetailContainerClass() {
-    return this.state.expanded ? this.visibleClass : this.invisibleClass;
+    return this.props.path.expanded ? this.visibleClass : this.invisibleClass;
+    // return this.visibleClass;
   }
 
   togglePathDetail() {
-    this.setState({ expanded : !this.state.expanded });
+    // this.setState({ expanded : !this.state.expanded });
   }
 
+        // className={ this.className }
   render() {
+    // console.log(this.className);
     return (
       <li
-        className={ this.className }
         onClick={ this.togglePathDetail.bind(this) } >
         <div>
-          <h4 className="path-method-label">{ this.method }</h4>
+          <h4 className="path-method-label">{ this.props.path.method }</h4>
           <h4 className="path-name">{ this.props.pathName }</h4>
           <h4>DESCRIPTION HERE</h4>
           <h4>AUTH HERE</h4>
         </div>
         <PathDetail
+          { ...this.props }
           className={ this.getPathDetailContainerClass() }
-          path={ this.props.path }
-          method={ this.method }
-          definitions={ this.props.definitions } />
+        />
       </li>
     );
   }
 }
 
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggle_expand_tag: tag => {
+      dispatch({ type: 'nothing', tag })
+    }
+  };
+};
+const mapStateToProps = (state) => state;
+const ConnectedPath = connect(mapStateToProps, mapDispatchToProps)(Path);
+export default ConnectedPath;
 

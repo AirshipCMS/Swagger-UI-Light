@@ -57,58 +57,57 @@ import Inferno from 'inferno';
 import Component from 'inferno-component';
 import ExploreByTags from './ExploreByTags';
 import ExplorePaths from './ExplorePaths';
+import { connect } from 'inferno-redux';
+import {
+  SET_SWAGGER,
+  ERROR
+} from '../store';
 
-export default class Explorer extends Component{
+class Explorer extends Component{
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {
-      definitions: {},
-      info: {
-        description : null,
-        title : null,
-        version : null
-      },
-      paths: {},
-      swagger: null,
-      tags: [],
-      errors: null
-    };
-
-    this.fetchApi( "/mock-data/multiple-tags.json" );
-  }
-
-  fetchApi( url ) {
-    const req = new Request(url, { method: "GET" });
-    fetch(req)
-      .then(res => res.json())
-      .then(res => {
-        this.setState( res );
-        this.setState({
-          tags: res.tags.map( tag => {
-            tag.expanded = false;
-            return tag;
-          })
-        });
+    this.fetchApi( "/mock-data/multiple-tags.json" )
+      .then(payload => {
+        this.props.set_swagger(payload);
       })
       .catch(err => {
         let errors = err instanceof SyntaxError ?
           "Server found a broken" :
           err.toString();
-        this.setState({ errors });
+        this.props.error(errors);
       });
+  }
+
+  fetchApi( url ) {
+    const req = new Request(url, { method: "GET" });
+    return fetch(req).then(res => res.json());
   }
 
   render() {
     return (
       <div>
-        <p className="error">{ this.state.errors }</p>
-        { this.state.tags.length > 0 ?
-          <ExploreByTags {...this.state} /> :
-          <ExplorePaths {...this.state} />
+        <p className="error">{ this.props.errors }</p>
+        { this.props.tags.length > 0 ?
+          <ExploreByTags {...this.props} /> :
+          <ExplorePaths {...this.props} />
         }
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    set_swagger: payload => {
+      dispatch({ type: SET_SWAGGER, payload });
+    },
+    error: errors => {
+      dispatch({ type: ERROR, errors });
+    }
+  };
+};
+const mapStateToProps = (state) => state;
+const ConnectedExplorer = connect(mapStateToProps, mapDispatchToProps)(Explorer);
+export default ConnectedExplorer;
