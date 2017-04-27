@@ -3,10 +3,10 @@ import { createStore } from 'redux';
 export const TOGGLE_EXPAND_TAG = 'TOGGLE_EXPAND_TAG';
 export const TOGGLE_EXPAND_PATH = 'TOGGLE_EXPAND_PATH';
 export const SET_SWAGGER = 'SET_SWAGGER';
+export const TOGGLE_EXPAND_ALL_PATHS = 'TOGGLE_EXPAND_ALL_PATHS';
 export const ERROR = 'ERROR';
 
 const initialState = {
-  // PER TAG Explorer pathsExpanded: false,
   definitions: {},
   info: {
     description : null,
@@ -31,9 +31,26 @@ export const store = createStore((state = initialState, action) => {
         tags
       });
 
+    case `${TOGGLE_EXPAND_ALL_PATHS}`:
+      const t = state.tags.map( tag => {
+        if( action.tag.name === tag.name ) {
+          tag.pathsExpanded = !tag.pathsExpanded;
+          return tag;
+        }
+      });
+      const tagPaths = Object.keys( state.paths ).map((pathKey) => {
+        if( state.paths[pathKey].definition.tags[0] === action.tag.name ) {
+          state.paths[pathKey].expanded = !state.paths[pathKey].expanded;
+        }
+        return state.paths[pathKey];
+      });
+      return Object.assign({}, state, {
+        tagPaths, t
+      });
+
     case `${TOGGLE_EXPAND_PATH}`:
       const paths = Object.keys(state.paths).map((pathKey) => {
-        if(state.paths[pathKey].name === action.path.name) {
+        if( state.paths[pathKey].name === action.path.name ) {
           state.paths[pathKey].expanded = !state.paths[pathKey].expanded;
         }
         return state.paths[pathKey];
@@ -57,6 +74,7 @@ export const store = createStore((state = initialState, action) => {
         }, {}),
         tags : action.payload.tags.map( tag => {
           tag.expanded = false;
+          tag.pathsExpanded = false;
           return tag;
         })
       };
@@ -66,12 +84,3 @@ export const store = createStore((state = initialState, action) => {
       return state;
   }
 });
-
-      // this.setState({
-      //   tags: this.state.tags.map( tag => {
-      //     if(tag.name === action.name) {
-      //       tag.expanded = !tag.expanded;
-      //     }
-      //     return tag;
-      //   })
-      // });

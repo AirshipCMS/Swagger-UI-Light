@@ -1,13 +1,3 @@
-/*
-  /api/route : {
-    expanded : true,
-    method : "get",
-    definition : {
-      blah blah
-    }
- }
- */
-
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { connect } from 'inferno-redux';
