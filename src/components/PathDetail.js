@@ -46,7 +46,7 @@ export default function PathDetail({ className, path, definitions }){
                   ( param.schema ) ? (
 
                     <div class="schema">
-                      <Schema schema={ param.schema } />
+                      <Schema schema={ param.schema } definitions={ definitions }/>
                     </div>
                   ) : null
                 }

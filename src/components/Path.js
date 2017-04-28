@@ -12,7 +12,6 @@ class Path extends Component{
     const methodTags = props.path[props.path.method].tags;
     methodTags.forEach(( tag ) => {
       if( tag.includes("auth:") ) {
-        console.log(tag.split(":")[1])
         this.auth = tag.split(":")[1];
       }
     });
