@@ -72,35 +72,3 @@ export default function PathDetail({ className, path, definitions }){
     </div>
   );
 }
-
-
-  // {
-  //       ( consumes ) ? (
-  //         <div>
-  //           <h4>Consumes</h4>
-  //           <div>
-  //             <div>{ consumes }</div>
-  //           </div>
-  //         </div>
-  //       ) : null
-  //     }
-  //     {
-  //       ( produces ) ? (
-  //         <div>
-  //           <h4>Produces</h4>
-  //           <div>
-  //             <div>{ produces }</div>
-  //           </div>
-  //         </div>
-  //       ) : null
-  //     }
-  //     {
-  //       ( responses ) ? (
-  //         <div>
-  //           <h4>Responses</h4>
-  //           <div>
-  //             <div>{ responses }</div>
-  //           </div>
-  //         </div>
-  //       ) : null
-  //     }

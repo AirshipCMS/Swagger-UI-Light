@@ -9,6 +9,14 @@ class Path extends Component{
   constructor( props ) {
     super( props );
 
+    const methodTags = props.path[props.path.method].tags;
+    methodTags.forEach(( tag ) => {
+      if( tag.includes("auth:") ) {
+        console.log(tag.split(":")[1])
+        this.auth = tag.split(":")[1];
+      }
+    });
+
     this.visibleClass = "path-detail-container";
     this.invisibleClass = "path-detail-container hidden";
 
@@ -41,7 +49,7 @@ class Path extends Component{
               <h4>{ this.props.path.definition.description }</h4>
             </div>
             <div class="table-cell table-cell-auth">
-              <h4>AUTH HERE</h4>
+              <h4>{ this.auth }</h4>
             </div>
           </div>
         </div>
