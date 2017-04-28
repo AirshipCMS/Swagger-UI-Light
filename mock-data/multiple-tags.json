@@ -47,6 +47,7 @@
     "paths": {
         "/": {
             "get": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "produces": [
                     "text/html"
                 ],
@@ -62,6 +63,7 @@
         },
         "/_version": {
             "get": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "produces": [
                     "text/html",
                     "application/json"
@@ -78,6 +80,7 @@
         },
         "/admin": {
             "get": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "produces": [
                     "text/html"
                 ],
@@ -93,6 +96,7 @@
         },
         "/api/shopping_cart": {
             "put": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "consumes": [
                     "application/json"
                 ],
@@ -100,9 +104,33 @@
                     {
                         "in": "body",
                         "name": "CartModel",
+                        "description": "description would go here",
                         "required": false,
+                        "type": "array",
                         "schema": {
-                            "$ref": "#/definitions/CartModel"
+                            "$ref": "#/definitions/CartModel",
+                            "type": "object",
+                            "properties": {
+                                "items": {
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "Name",
+                        "description": "description here",
+                        "required": false,
+                        "type": "array",
+                        "schema": {
+                            "$ref": "#/definitions/CartModel",
+                            "type": "object",
+                            "properties": {
+                                "items": {
+                                    "type": "array"
+                                }
+                            }
                         }
                     }
                 ],
@@ -111,7 +139,7 @@
                 ],
                 "responses": {
                     "default": {
-                        "description": ""
+                        "description": "blah blah blah"
                     }
                 },
                 "tags": [
@@ -121,6 +149,7 @@
         },
         "/api/shopping_cart/add": {
             "post": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "consumes": [
                     "application/json"
                 ],
@@ -150,6 +179,7 @@
         },
         "/api/widgets": {
             "get": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "parameters": [
                     {
                         "default": 1,
@@ -204,6 +234,7 @@
         },
         "/api/widgets/{id}": {
             "get": {
+                "description": "For valid response try integer IDs with value >= 1",
                 "parameters": [
                     {
                         "in": "params",

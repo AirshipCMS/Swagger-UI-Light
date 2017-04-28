@@ -5,9 +5,13 @@ import Explorer from './Explorer';
 export class App extends Component {
   render() {
     return <div>
-      <h1>Swagger UI</h1>
-
-      <Explorer {...this.props}/>
+      <header>
+        <div class="header-logo"></div>
+        <h1>Swagger UI Light</h1>
+      </header>
+      <div class="content-container">
+      	<Explorer {...this.props}/>
+      </div>
     </div>
   }
 }

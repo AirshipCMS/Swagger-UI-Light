@@ -1,0 +1,23 @@
+// Colors
+
+$dark-gray: #2E3239;
+$light-gray: #959BA5;
+$get-method-color: #4A90E2;
+$delete-method-color: #D0021B;
+$put-method-color: #599F08;
+$post-method-color: #417505;
+$patch-method-color: #B09A77;
+$options-method-color: #959BA5;
+
+// Fonts
+
+$font-family-montserrat: 'Montserrat', sans-serif;
+$font-family-roboto: 'Roboto', sans-serif;
+
+// Breakpoints
+
+$breakpoints: (
+  'small'  : ( min-width:  767px ),
+  'medium' : ( min-width:  992px ),
+  'large'  : ( min-width: 1200px )
+);

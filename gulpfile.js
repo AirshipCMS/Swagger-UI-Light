@@ -4,13 +4,9 @@ var $ = require('gulp-load-plugins')();
 var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function () {
-
-  return gulp.src('./scss/*.scss')
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest('./src/styles'));
+  return gulp.src('./scss/**/*.scss')
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(gulp.dest('./public/styles'));
 });
 
 gulp.task('watch', function () {

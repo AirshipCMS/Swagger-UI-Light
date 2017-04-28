@@ -5,10 +5,8 @@ import { connect } from 'inferno-redux';
 
 const EXPANDED_BUTTON_CLASS = 'toggle-button expanded';
 const CLOSED_BUTTON_CLASS = 'toggle-button';
-const EXPANDED_TAG_CLASS = 'tag';
-const CLOSED_TAG_CLASS = 'tag hidden';
-const EXPANDED_PATHS_CLASS = 'path-detail-container';
-const CLOSED_PATHS_CLASS = 'path-detail-container hidden';
+const EXPANDED_TAG_CLASS = 'paths';
+const CLOSED_TAG_CLASS = 'paths hidden';
 
 import {
   TOGGLE_EXPAND_TAG,
@@ -38,19 +36,28 @@ class ExploreByTags extends Component {
   render () {
 
     return (
-      <div>
+      <div class="tags-container">
         { this.props.tags.map( tag =>
-          <section>
-            <div onClick={ this.expandTag(tag) }>
-              <h2>{ tag.name }</h2>
-              <p>{ tag.description }</p>
+          <section class="tag">
+            <div class="tag-content">
+              <div class="tag-details-container">
+                <div className={ tag.expanded ? 'icon-arrow open' : 'icon-arrow closed' }></div>
+                <div onClick={ this.expandTag(tag) } class="tag-details">
+                  <h2 class="tag-name">{ tag.name }</h2>
+                  <p>{ tag.description }</p>
+                </div>
+              </div>
+              <div className={ tag.pathsExpanded ? 'toggle-button open' : 'toggle-button close' } onClick={ this.expandAllPaths(tag) }>
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
             </div>
             <ExplorePaths
               { ...this.props }
               tag={tag}
               className={ tag.expanded ? EXPANDED_TAG_CLASS : CLOSED_TAG_CLASS }
             />
-            <button onClick={ this.expandAllPaths(tag) }>{ tag.pathsExpanded ? 'open' : 'closed' }</button>
           </section>
         ) }
       </div>

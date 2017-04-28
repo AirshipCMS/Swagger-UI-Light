@@ -1,3 +1,253 @@
-body {
-	background-color: red;
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+@import "partials/reset";
+@import "partials/variables";
+@import "partials/mixins";
+
+.hidden {
+  display: none;
+}
+
+.toggle-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  &:hover,
+  &.open {
+    div {
+      background-color: $dark-gray;
+    }
+  }
+
+  div {
+    width: 30px;
+    height: 5px;
+    margin: 2px 0;
+    background-color: #D5DBE5;
+  }
+}
+
+.icon-arrow {
+  width: 0; 
+  height: 0;
+  position: absolute;
+  top: 5px;
+
+  &.closed {
+    border-top: 5px solid transparent;
+    border-left: 5px solid $light-gray;
+    border-bottom: 5px solid transparent;
+    left: -10px;
+  }
+
+  &.open {
+    border-top: 5px solid $light-gray;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    left: -15px;
+  }
+}
+
+.icon-arrow.path-arrow.closed {
+  left: 0;
+}
+
+.icon-arrow.path-arrow.open {
+  left: -5px;
+  top: 10px;
+}
+
+// Header
+
+header {
+  background-color: $dark-gray;
+  padding: 20px;
+  text-align: center;
+  color: $light-gray;
+  text-transform: uppercase;
+
+  h1 {
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-family: $font-family-montserrat;
+  }
+}
+
+.header-logo {
+  border: 2px solid $light-gray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.content-container {
+  padding: 30px;
+  font-size: 14px;
+  font-family: $font-family-montserrat;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  p {
+    color: $light-gray;
+    font-family: $font-family-roboto;
+  }
+
+  @include breakpoint(large){
+    padding: 50px;
+  }
+}
+
+// Tags
+
+.tags-container {
+  margin-top: 30px;
+  border-top: 1px solid #4C525B;
+
+  @include breakpoint(large) {
+    margin-top: 50px;
+  }
+}
+
+.tag {
+  border-bottom: 1px solid #4C525B;
+  padding: 30px;
+}
+
+.tag-details-container {
+  display: inline-block;
+}
+
+.tag-content {
+  position: relative;
+  cursor: pointer;
+}
+
+.tag-details {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tag-name {
+  color: #4C525B;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+// Paths List
+
+.paths {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  padding: 10px;
+  display: table;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  color: $light-gray;
+}
+
+.table-cell-method,
+.table-cell-auth {
+  width: 10%;
+  position: relative;
+}
+
+.table-cell-route,
+.table-cell-description {
+  width: 40%;
+}
+
+.table-cell-route {
+  color: $dark-gray;
+}
+
+.path {
+  border: 1px solid #D8DDE4;
+  width: 100%;
+  margin: 0;
+}
+
+.path-table {
+  cursor: pointer;
+}
+
+.path-method-label {
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-left: 10px;
+
+  &.path-method-get {
+    background-color: $get-method-color;
+  }
+
+  &.path-method-delete {
+    background-color: $delete-method-color;
+  }
+
+  &.path-method-put {
+    background-color: $put-method-color;
+  }
+
+  &.path-method-post {
+    background-color: $post-method-color;
+  }
+
+  &.path-method-patch {
+    background-color: $patch-method-color;
+  }
+
+  &.path-method-options {
+    background-color: $light-gray;
+  }
+}
+
+// Path Details
+
+.path-detail-container {
+  background-color: #EEF2F9;
+
+  div {
+    color: $dark-gray;
+    padding: 20px;
+  }
+
+  p {
+    line-height: 20px;
+  }
+}
+
+.implementation-notes {
+  border-bottom: 1px solid $light-gray;
+}
+
+.parameters {
+  background-color: white;
+  margin-top: 15px;
+}
+
+.schema {
+  background-color: #EEF2F9;
+  width: 100%;
+  max-height: 110px;
+  padding: 0px !important;
+
+  div {
+    padding: 10px;
+  }
 }

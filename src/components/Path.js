@@ -12,7 +12,7 @@ class Path extends Component{
     this.visibleClass = "path-detail-container";
     this.invisibleClass = "path-detail-container hidden";
 
-    this.className = `path path-method-${this.props.path.method}`;
+    this.className = `path-method-label path-method-${this.props.path.method}`;
   }
 
   getPathDetailContainerClass() {
@@ -25,20 +25,31 @@ class Path extends Component{
 
   render() {
     return (
-      <li
-        className={ this.className }
+      <div
+        className="path"
         onClick={ this.togglePathDetail.bind(this) } >
-        <div>
-          <h4 className="path-method-label">{ this.props.path.method }</h4>
-          <h4 className="path-name">{ this.props.path.name }</h4>
-          <h4>DESCRIPTION HERE</h4>
-          <h4>AUTH HERE</h4>
+        <div class="table path-table">
+          <div class="table-row">
+            <div class="table-cell table-cell-method">
+              <div className={ this.props.path.expanded ? 'icon-arrow path-arrow open' : 'icon-arrow path-arrow closed' }></div>
+              <h4 className={ this.className }>{ this.props.path.method }</h4>
+            </div>
+            <div class="table-cell table-cell-route">
+              <h4 className="path-name">{ this.props.path.name }</h4>
+            </div>
+            <div class="table-cell table-cell-description">
+              <h4>{ this.props.path.definition.description }</h4>
+            </div>
+            <div class="table-cell table-cell-auth">
+              <h4>AUTH HERE</h4>
+            </div>
+          </div>
         </div>
         <PathDetail
           { ...this.props }
           className={ this.getPathDetailContainerClass() }
         />
-      </li>
+      </div>
     );
   }
 }

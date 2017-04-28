@@ -1,0 +1,12 @@
+@mixin breakpoint($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
