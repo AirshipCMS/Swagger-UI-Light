@@ -211,10 +211,14 @@ header {
   background-color: white;
   margin-top: 15px; }
 
-.schema {
+.path-detail-container .schema {
   background-color: #EEF2F9;
   width: 100%;
   max-height: 110px;
-  padding: 0px !important; }
-  .schema div {
+  padding: 0; }
+  .path-detail-container .schema div {
     padding: 10px; }
+  .path-detail-container .schema .schema-object {
+    padding: 0; }
+    .path-detail-container .schema .schema-object p {
+      text-indent: 10px; }

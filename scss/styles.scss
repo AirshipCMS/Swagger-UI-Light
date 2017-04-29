@@ -241,13 +241,21 @@ header {
   margin-top: 15px;
 }
 
-.schema {
+.path-detail-container .schema {
   background-color: #EEF2F9;
   width: 100%;
   max-height: 110px;
-  padding: 0px !important;
+  padding: 0;
 
   div {
     padding: 10px;
+  }
+
+  .schema-object {
+    padding: 0;
+
+    p {
+      text-indent: 10px;
+    }
   }
 }

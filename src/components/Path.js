@@ -9,12 +9,9 @@ class Path extends Component{
   constructor( props ) {
     super( props );
 
-    const methodTags = props.path[props.path.method].tags;
-    methodTags.forEach(( tag ) => {
-      if( tag.includes("auth:") ) {
-        this.auth = tag.split(":")[1];
-      }
-    });
+    if( props.path.definition["x-auth-required"] ) {
+      this.auth = props.path.definition["x-auth-scope"];
+    }
 
     this.visibleClass = "path-detail-container";
     this.invisibleClass = "path-detail-container hidden";

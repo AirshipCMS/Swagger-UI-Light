@@ -57,9 +57,10 @@
                     }
                 },
                 "tags": [
-                    "Render",
-                    "auth:user"
-                ]
+                    "Render"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "user"
             }
         },
         "/_version": {
@@ -75,9 +76,10 @@
                     }
                 },
                 "tags": [
-                    "Render",
-                    "auth:admin"
-                ]
+                    "Render"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "admin"
             }
         },
         "/admin": {
@@ -92,9 +94,10 @@
                     }
                 },
                 "tags": [
-                    "Render",
-                    "auth:admin"
-                ]
+                    "Render"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "admin"
             }
         },
         "/api/shopping_cart": {
@@ -146,9 +149,10 @@
                     }
                 },
                 "tags": [
-                    "API",
-                    "auth:user"
-                ]
+                    "API"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "user"
             }
         },
         "/api/shopping_cart/add": {
@@ -177,9 +181,10 @@
                 },
                 "tags": [
                     "API",
-                    "airshop",
-                    "auth:user"
-                ]
+                    "airshop"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "user"
             }
         },
         "/api/widgets": {
@@ -233,9 +238,10 @@
                     }
                 },
                 "tags": [
-                    "API",
-                    "auth:user"
-                ]
+                    "API"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "admin"
             }
         },
         "/api/widgets/{id}": {
@@ -258,9 +264,10 @@
                     }
                 },
                 "tags": [
-                    "API",
-                    "auth:admin"
-                ]
+                    "API"
+                ],
+                "x-auth-required": true,
+                "x-auth-scope": "admin"
             }
         }
     },
