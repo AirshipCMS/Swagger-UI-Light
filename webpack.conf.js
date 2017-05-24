@@ -14,7 +14,17 @@ module.exports = {
 		loaders: [{
 			test: /\.js$/,
 			loader: 'babel-loader'
-		}]
+    },
+    {
+      test: /\.scss$/,
+      use: [{
+        loader: "style-loader"
+      }, {
+        loader: "css-loader"
+      }, {
+        loader: "sass-loader"
+      }],
+    }]
 	},
 	devServer: {
 		contentBase: './',
@@ -23,19 +33,12 @@ module.exports = {
 		hot: true,
 		inline: true,
 		proxy: {
-			'/': {
+      '/api/swagger': {
 				bypass: function (req, res, proxyOptions) {
-					return '/public/index.html';
+          if(req.url === '/api/swagger'){
+            return '/mock-data/multiple-tags.json';
+          }
 				}
-      },
-      '/styles/styles.css': {
-				bypass: function (req, res, proxyOptions) {
-          return '/public/styles/styles.css';
-				}
-      },
-      '/mock-data/**': {
-        target: 'http://localhost:4000',
-        secure: false
       }
     }
   },

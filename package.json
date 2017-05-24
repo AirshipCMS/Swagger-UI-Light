@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "release": "webpack --config webpack.conf.js",
-    "dev": "webpack-dev-server --quiet --config webpack.conf.js --host 0.0.0.0",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "mock-server": "python -m SimpleHTTPServer 4000",
-    "start": "npm run mock-server & npm run dev"
+    "start": "webpack-dev-server --quiet --config webpack.conf.js --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "swagger",
@@ -35,14 +33,14 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-sass": "^3.1.0",
+    "css-loader": "^0.28.2",
     "history": "^4.6.1",
     "inferno": "^3.0.5",
     "inferno-create-element": "^3.0.5",
     "inferno-redux": "^3.0.5",
-    "inferno-router": "^3.0.5"
+    "inferno-router": "^3.0.5",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1"
   }
 }
