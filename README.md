@@ -14,6 +14,16 @@ The primary custom fields are
   "x-auth-scope" : "admin"
 }
 ```
+## Development
+```sh
+yarn start
+```
+
+## Release
+```sh
+yarn run release
+```
+
 ## Docker
 
 The included [Dockerfile](./Dockerfile) serves the precompile ui via nginx.
