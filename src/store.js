@@ -73,6 +73,12 @@ export const store = createStore((state = initialState, action) => {
           return paths;
         }, {}),
         tags : action.payload.tags.map( tag => {
+          tag.paths = [];
+          Object.keys(action.payload.paths).map((pathKey) => {
+            if(action.payload.paths[pathKey].definition.tags[0] === tag.name) {
+              tag.paths.push(action.payload.paths[pathKey]);
+            }
+          });
           tag.expanded = false;
           tag.pathsExpanded = false;
           return tag;

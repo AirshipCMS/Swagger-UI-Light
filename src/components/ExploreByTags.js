@@ -56,6 +56,7 @@ class ExploreByTags extends Component {
             <ExplorePaths
               { ...this.props }
               tag={tag}
+              paths={tag.paths}
               className={ tag.expanded ? EXPANDED_TAG_CLASS : CLOSED_TAG_CLASS }
             />
           </section>
