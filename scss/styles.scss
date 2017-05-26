@@ -33,25 +33,26 @@
   width: 0; 
   height: 0;
   position: absolute;
-  top: 5px;
+  top: 35px;
 
   &.closed {
     border-top: 5px solid transparent;
     border-left: 5px solid $light-gray;
     border-bottom: 5px solid transparent;
-    left: -10px;
+    left: 20px;
   }
 
   &.open {
     border-top: 5px solid $light-gray;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    left: -15px;
+    left: 15px;
   }
 }
 
 .icon-arrow.path-arrow.closed {
   left: 0;
+  top: 10px;
 }
 
 .icon-arrow.path-arrow.open {
@@ -68,7 +69,7 @@ header {
   color: $light-gray;
   text-transform: uppercase;
 
-  h1 {
+  h1, h2 {
     letter-spacing: 2px;
     font-size: 12px;
     font-family: $font-family-montserrat;
@@ -81,7 +82,7 @@ header {
   width: 50px;
   height: 50px;
   margin: 0 auto;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .content-container {
@@ -106,6 +107,7 @@ header {
 .tags-container {
   margin-top: 30px;
   border-top: 1px solid #4C525B;
+  cursor: pointer;
 
   @include breakpoint(large) {
     margin-top: 50px;
@@ -114,7 +116,6 @@ header {
 
 .tag {
   border-bottom: 1px solid #4C525B;
-  padding: 30px;
 }
 
 .tag-details-container {
@@ -124,6 +125,7 @@ header {
 .tag-content {
   position: relative;
   cursor: pointer;
+  padding: 30px;
 }
 
 .tag-details {
@@ -171,6 +173,14 @@ header {
 
 .table-cell-route {
   color: $dark-gray;
+}
+
+.table-cell-auth .user {
+  color: #FCA130;
+}
+
+.table-cell-auth .admin {
+  color: #8ED2C9;
 }
 
 .path {
@@ -257,5 +267,27 @@ header {
     p {
       text-indent: 10px;
     }
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  font-family: $font-family-montserrat;
+  text-align: center;
+
+  p,a {
+    display: inline-block;
+    margin: 20px;
+    color: $dark-gray;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $light-gray;
+    transition: all 0.2s ease;
   }
 }

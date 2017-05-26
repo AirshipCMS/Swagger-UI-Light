@@ -39,10 +39,10 @@ class ExploreByTags extends Component {
       <div class="tags-container">
         { this.props.tags.map( tag =>
           <section class="tag">
-            <div class="tag-content">
+            <div class="tag-content" onClick={ this.expandTag(tag) } >
               <div class="tag-details-container">
                 <div className={ tag.expanded ? 'icon-arrow open' : 'icon-arrow closed' }></div>
-                <div onClick={ this.expandTag(tag) } class="tag-details">
+                <div class="tag-details">
                   <h2 class="tag-name">{ tag.name }</h2>
                   <p>{ tag.description }</p>
                 </div>

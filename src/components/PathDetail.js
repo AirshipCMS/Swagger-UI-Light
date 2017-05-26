@@ -21,12 +21,28 @@ export default function PathDetail({ className, path, definitions }){
         ) : null
       }
       {
+        (consumes) ? (
+          <div>
+            <h4>Consumes</h4>
+            <p>{ consumes.join(" | ") }</p>
+          </div>
+        ) : null
+      }
+      {
+        (produces) ? (
+          <div>
+            <h4>Produces</h4>
+            <p>{ produces.join(" | ")  }</p>
+          </div>
+        ) : null
+      }
+      {
         ( parameters ) ? (
           <div>
             <h4>Parameters</h4>
             { parameters.map( param =>
               <div class="parameters">
-                <p>{ param.in }</p>
+                <p>Parameter Type: { param.in }</p>
                 {
                   ( param.description ) ? (
                     <p>{ param.description }</p>
@@ -34,7 +50,7 @@ export default function PathDetail({ className, path, definitions }){
                 }
                 {
                   ( param.type ) ? (
-                    <p>Parameter Type: { param.type }</p>
+                    <p>Data Type: { param.type }</p>
                   ) : null
                 }
                 {

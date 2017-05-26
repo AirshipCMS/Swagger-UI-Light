@@ -62,20 +62,21 @@ table {
   width: 0;
   height: 0;
   position: absolute;
-  top: 5px; }
+  top: 35px; }
   .icon-arrow.closed {
     border-top: 5px solid transparent;
     border-left: 5px solid #959BA5;
     border-bottom: 5px solid transparent;
-    left: -10px; }
+    left: 20px; }
   .icon-arrow.open {
     border-top: 5px solid #959BA5;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    left: -15px; }
+    left: 15px; }
 
 .icon-arrow.path-arrow.closed {
-  left: 0; }
+  left: 0;
+  top: 10px; }
 
 .icon-arrow.path-arrow.open {
   left: -5px;
@@ -87,7 +88,7 @@ header {
   text-align: center;
   color: #959BA5;
   text-transform: uppercase; }
-  header h1 {
+  header h1, header h2 {
     letter-spacing: 2px;
     font-size: 12px;
     font-family: "Montserrat", sans-serif; }
@@ -98,7 +99,7 @@ header {
   width: 50px;
   height: 50px;
   margin: 0 auto;
-  margin-bottom: 5px; }
+  margin-bottom: 20px; }
 
 .content-container {
   padding: 30px;
@@ -115,21 +116,22 @@ header {
 
 .tags-container {
   margin-top: 30px;
-  border-top: 1px solid #4C525B; }
+  border-top: 1px solid #4C525B;
+  cursor: pointer; }
   @media (min-width: 1200px) {
     .tags-container {
       margin-top: 50px; } }
 
 .tag {
-  border-bottom: 1px solid #4C525B;
-  padding: 30px; }
+  border-bottom: 1px solid #4C525B; }
 
 .tag-details-container {
   display: inline-block; }
 
 .tag-content {
   position: relative;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 30px; }
 
 .tag-details {
   display: inline-block;
@@ -166,6 +168,12 @@ header {
 
 .table-cell-route {
   color: #2E3239; }
+
+.table-cell-auth .user {
+  color: #FCA130; }
+
+.table-cell-auth .admin {
+  color: #8ED2C9; }
 
 .path {
   border: 1px solid #D8DDE4;
@@ -222,3 +230,20 @@ header {
     padding: 0; }
     .path-detail-container .schema .schema-object p {
       text-indent: 10px; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  text-align: center; }
+  footer p, footer a {
+    display: inline-block;
+    margin: 20px;
+    color: #2E3239;
+    transition: all 0.2s ease;
+    text-decoration: none; }
+  footer a:hover {
+    color: #959BA5;
+    transition: all 0.2s ease; }
