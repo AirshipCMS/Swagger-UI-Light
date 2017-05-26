@@ -6,6 +6,8 @@ import { Provider } from 'inferno-redux';
 import { App } from './components/App';
 import { store } from './store';
 
+import scss from '../scss/styles.scss';
+
 if (module.hot) {
     require('inferno-devtools');
 }

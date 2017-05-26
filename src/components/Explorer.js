@@ -3,6 +3,7 @@ import Component from 'inferno-component';
 import ExploreByTags from './ExploreByTags';
 import ExplorePaths from './ExplorePaths';
 import { connect } from 'inferno-redux';
+import { swagger_api_url } from '../config';
 import {
   SET_SWAGGER,
   ERROR
@@ -13,13 +14,13 @@ class Explorer extends Component{
   constructor(props) {
     super(props);
 
-    this.fetchApi( "/mock-data/multiple-tags.json" )
+    this.fetchApi( swagger_api_url )
       .then(payload => {
         this.props.set_swagger(payload);
       })
       .catch(err => {
         let errors = err instanceof SyntaxError ?
-          "Server found a broken" :
+          `Swagger UI Light could not find the swagger json api at ${swagger_api_url}` :
           err.toString();
         this.props.error(errors);
       });
