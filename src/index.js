@@ -8,6 +8,8 @@ import { store } from './store';
 
 import scss from '../scss/styles.scss';
 
+import prism from './prism';
+
 if (module.hot) {
     require('inferno-devtools');
 }

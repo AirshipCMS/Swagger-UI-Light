@@ -32,15 +32,20 @@ export const store = createStore((state = initialState, action) => {
       });
 
     case `${TOGGLE_EXPAND_ALL_PATHS}`:
-      const t = state.tags.map( tag => {
+      const t = state.tags.find( tag => {
         if( action.tag.name === tag.name ) {
-          tag.pathsExpanded = !tag.pathsExpanded;
+          if(!tag.expanded && !tag.pathsExpanded) {
+            tag.expanded = true;
+            tag.pathsExpanded = true;
+          } else {
+            tag.pathsExpanded = !tag.pathsExpanded;
+          }
           return tag;
         }
       });
       const tagPaths = Object.keys( state.paths ).map((pathKey) => {
         if( state.paths[pathKey].definition.tags[0] === action.tag.name ) {
-          state.paths[pathKey].expanded = !state.paths[pathKey].expanded;
+          state.paths[pathKey].expanded = t.pathsExpanded;
         }
         return state.paths[pathKey];
       });

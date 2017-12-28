@@ -18,14 +18,16 @@ export default function Schema({ schema, definitions }){
   });
 
   return (
-    <div>
-      <p>{ schemaRef } &#123;</p>
-      <div class="schema-object">
+    <pre class="language-javascript">
+      <code class="language-javascript">{ schemaRef } &#123;</code>
+      <code class="schema-object language-javascript">
         { Object.keys(definitions[schemaRef].properties).map( property =>
-          <p>{ property } ({ definitions[schemaRef].properties[property].type }, { definitions[schemaRef].properties[property].required ? "reqired" : "optional" })</p>
+          <pre>
+            <code class="language-javascript">{ property } ({ definitions[schemaRef].properties[property].type }, { definitions[schemaRef].properties[property].required ? "reqired" : "optional" })</code>
+          </pre>
         ) }
-      </div>
-      <p>&#125;</p>
-    </div>
+      </code>
+      <span>&#125;</span>
+    </pre>
   );
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Open+Sans');
 @import "partials/reset";
 @import "partials/variables";
 @import "partials/mixins";
@@ -8,63 +8,35 @@
 }
 
 .toggle-button {
-  position: absolute;
-  right: 0;
-  top: 50%;
   cursor: pointer;
-  transform: translateY(-50%);
-
-  &:hover,
-  &.open {
-    div {
-      background-color: $dark-gray;
-    }
-  }
-
-  div {
-    width: 30px;
-    height: 5px;
-    margin: 2px 0;
-    background-color: #D5DBE5;
-  }
+  flex: 0 0 10%;
 }
 
 .icon-arrow {
   width: 0; 
   height: 0;
-  position: absolute;
-  top: 35px;
 
   &.closed {
-    border-top: 5px solid transparent;
-    border-left: 5px solid $light-gray;
-    border-bottom: 5px solid transparent;
-    left: 20px;
+    border-top: 4px solid transparent;
+    border-left: 4px solid $light-gray;
+    border-bottom: 4px solid transparent;
+    position: absolute;
+    left: 3px;
   }
 
   &.open {
-    border-top: 5px solid $light-gray;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    left: 15px;
+    border-top: 4px solid $light-gray;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
   }
-}
-
-.icon-arrow.path-arrow.closed {
-  left: 0;
-  top: 10px;
-}
-
-.icon-arrow.path-arrow.open {
-  left: -5px;
-  top: 10px;
 }
 
 // Header
 
 header {
   background-color: $dark-gray;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   color: $light-gray;
   text-transform: uppercase;
@@ -77,8 +49,6 @@ header {
 }
 
 .header-logo {
-  border: 2px solid $light-gray;
-  border-radius: 50%;
   width: 50px;
   height: 50px;
   margin: 0 auto;
@@ -88,13 +58,15 @@ header {
 .content-container {
   padding: 30px;
   font-size: 14px;
-  font-family: $font-family-montserrat;
+  font-family: $font-family-opensans;
   max-width: 1200px;
   margin: 0 auto;
 
   p {
     color: $light-gray;
-    font-family: $font-family-roboto;
+    font-family: $font-family-opensans;
+    font-weight: 400;
+    font-size: 12px;
   }
 
   @include breakpoint(large){
@@ -105,38 +77,38 @@ header {
 // Tags
 
 .tags-container {
-  margin-top: 30px;
-  border-top: 1px solid #4C525B;
+  border-top: 1px solid #dee3ea;
   cursor: pointer;
-
-  @include breakpoint(large) {
-    margin-top: 50px;
-  }
 }
 
 .tag {
-  border-bottom: 1px solid #4C525B;
+  border-bottom: 1px solid #dee3ea;
 }
 
 .tag-details-container {
-  display: inline-block;
+  display: flex;
+  flex: 0 0 90%;
 }
 
 .tag-content {
+  display: flex;
   position: relative;
   cursor: pointer;
   padding: 30px;
 }
 
 .tag-details {
-  display: inline-block;
+  flex: 1 0 95%;
+  padding-left: 8px;
   vertical-align: top;
 }
 
 .tag-name {
   color: #4C525B;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-family: $font-family-opensans;
 }
 
 // Paths List
@@ -145,30 +117,42 @@ header {
   margin-top: 20px;
 }
 
+h4.path-name {
+  word-break: break-all;
+}
+
 .table {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   display: table;
 }
 
 .table-row {
-  display: table-row;
+  display: flex;
 }
 
 .table-cell {
-  display: table-cell;
+  display: flex;
   color: $light-gray;
 }
 
 .table-cell-method,
 .table-cell-auth {
-  width: 10%;
   position: relative;
+  display: flex;
+}
+
+.table-cell-method {
+  flex: 0 0 10%;
+}
+
+.table-cell-auth {
+  flex: 0 0 20%;
 }
 
 .table-cell-route,
 .table-cell-description {
-  width: 40%;
+  flex: 0 0 35%;
 }
 
 .table-cell-route {
@@ -196,11 +180,14 @@ header {
 .path-method-label {
   color: white;
   text-transform: uppercase;
-  display: inline-block;
-  padding: 5px;
+  display: flex;
+  padding: 0 4px;
   text-align: center;
-  letter-spacing: 2px;
-  margin-left: 10px;
+  letter-spacing: 1px;
+  margin-left: 14px;
+  word-break: break-all;
+  font-size: 10px;
+  align-items: center;
 
   &.path-method-get {
     background-color: $get-method-color;
@@ -256,6 +243,7 @@ header {
   width: 100%;
   max-height: 110px;
   padding: 0;
+  overflow-y: scroll;
 
   div {
     padding: 10px;
@@ -275,7 +263,7 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: #FFFFFF;
-  font-family: $font-family-montserrat;
+  font-family: $font-family-opensans;
   text-align: center;
 
   p,a {
@@ -291,3 +279,107 @@ footer {
     transition: all 0.2s ease;
   }
 }
+
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em; }
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #272822; }
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal; }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray; }
+
+.token.punctuation {
+  color: #f8f8f2; }
+
+.namespace {
+  opacity: .7; }
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+  background-color: transparent; }
+
+.token.boolean,
+.token.number {
+  color: #ae81ff; }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e; }
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2; }
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #e6db74; }
+
+.token.keyword {
+  color: #66d9ef; }
+
+.token.regex,
+.token.important {
+  color: #fd971f; }
+
+.token.important,
+.token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }

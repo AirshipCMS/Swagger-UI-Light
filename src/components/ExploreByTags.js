@@ -29,6 +29,7 @@ class ExploreByTags extends Component {
   expandAllPaths( tag ){
     return e => {
       e.preventDefault();
+      e.stopPropagation();
       this.props.toggle_expand_all_paths(tag);
     }
   };
@@ -48,9 +49,7 @@ class ExploreByTags extends Component {
                 </div>
               </div>
               <div className={ tag.pathsExpanded ? 'toggle-button open' : 'toggle-button close' } onClick={ this.expandAllPaths(tag) }>
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
+                <span>{ tag.pathsExpanded ? 'Collapse All' : 'Show All' }</span>
               </div>
             </div>
             <ExplorePaths

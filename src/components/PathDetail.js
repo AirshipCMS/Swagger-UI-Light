@@ -74,7 +74,7 @@ export default function PathDetail({ className, path, definitions }){
                 {
                   ( param.default !== undefined ) ? (
                     <div class="schema">
-                      <div>
+                      <div class="schema language-javascript">
                         { param.default }
                       </div>
                     </div>
