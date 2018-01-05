@@ -266,12 +266,12 @@ footer {
   font-family: $font-family-opensans;
   text-align: center;
 
-  p,a {
-    display: inline-block;
-    margin: 20px;
-    color: $dark-gray;
-    transition: all 0.2s ease;
-    text-decoration: none;
+  a {
+    color: #d4d9e0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    margin: 10px;
   }
 
   a:hover {

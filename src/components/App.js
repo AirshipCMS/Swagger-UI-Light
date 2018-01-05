@@ -16,8 +16,8 @@ export class App extends Component {
       	<Explorer {...this.props}/>
       </div>
       <footer>
-        <p>MIT License</p>
-        <a href="https://github.com/AirshipCMS">Made with Airship</a>
+        <a href="https://github.com/AirshipCMS/Swagger-UI-Light" target="_blank">Swagger UI Light 1.0.0</a>
+        <a href="https://github.com/AirshipCMS/Swagger-UI-Light/blob/master/LICENSE" target="_blank">MIT License</a>
       </footer>
     </div>
   }
