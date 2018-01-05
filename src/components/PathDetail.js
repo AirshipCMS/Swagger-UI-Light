@@ -15,7 +15,7 @@ export default function PathDetail({ className, path, definitions }){
       {
         ( path.definition.description ) ? (
           <div class="implementation-notes">
-            <h4>Implementation Notes</h4>
+            <p>Implementation Notes</p>
             <p>{ path.definition.description }</p>
           </div>
         ) : null
@@ -23,7 +23,7 @@ export default function PathDetail({ className, path, definitions }){
       {
         (consumes) ? (
           <div>
-            <h4>Consumes</h4>
+            <p>Consumes</p>
             <p>{ consumes.join(" | ") }</p>
           </div>
         ) : null
@@ -31,7 +31,7 @@ export default function PathDetail({ className, path, definitions }){
       {
         (produces) ? (
           <div>
-            <h4>Produces</h4>
+            <p>Produces</p>
             <p>{ produces.join(" | ")  }</p>
           </div>
         ) : null
@@ -39,7 +39,7 @@ export default function PathDetail({ className, path, definitions }){
       {
         ( parameters ) ? (
           <div>
-            <h4>Parameters</h4>
+            <p>Parameters</p>
             { parameters.map( param =>
               <div class="parameters">
                 <p>Parameter Type: { param.in }</p>
@@ -74,9 +74,11 @@ export default function PathDetail({ className, path, definitions }){
                 {
                   ( param.default !== undefined ) ? (
                     <div class="schema">
-                      <div class="schema language-javascript">
-                        { param.default }
-                      </div>
+                      <pre class="language-javascript">
+                        <code class="language-javascript">
+                          { param.default }
+                        </code>
+                      </pre>
                     </div>
                   ) : null
                 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Open+Sans|Inconsolata');
 @import "partials/reset";
 @import "partials/variables";
 @import "partials/mixins";
@@ -10,6 +10,15 @@
 .toggle-button {
   cursor: pointer;
   flex: 0 0 10%;
+  text-align: right;
+
+  span {
+    text-decoration: none;
+    color: #959BA5;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+  }
 }
 
 .icon-arrow {
@@ -21,7 +30,8 @@
     border-left: 4px solid $light-gray;
     border-bottom: 4px solid transparent;
     position: absolute;
-    left: 3px;
+    left: 10px;
+    top: 18px;
   }
 
   &.open {
@@ -29,6 +39,17 @@
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     position: absolute;
+    top: 21px;
+    left: 8px;
+  }
+
+  &.path-arrow.closed {
+    left: 2px;
+    top: 3px;
+  }
+  &.path-arrow.open {
+    top: 5px;
+    left: 0px;
   }
 }
 
@@ -50,7 +71,6 @@ header {
 }
 
 .content-container {
-  padding: 30px;
   font-size: 14px;
   font-family: $font-family-opensans;
   max-width: 1200px;
@@ -61,6 +81,7 @@ header {
     font-family: $font-family-opensans;
     font-weight: 400;
     font-size: 12px;
+    line-height: 15px;
   }
 
   @include breakpoint(large){
@@ -88,7 +109,13 @@ header {
   display: flex;
   position: relative;
   cursor: pointer;
-  padding: 30px;
+  padding: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transition: all 0.2s ease;
+    background-color: #EEF2F9;
+  }
 }
 
 .tag-details {
@@ -107,17 +134,16 @@ header {
 
 // Paths List
 
-.paths {
-  margin-top: 20px;
-}
-
 h4.path-name {
   word-break: break-all;
+  font-family: $font-family-inconsolata;
+  color: #565d69;
+  font-size: 14px;
 }
 
 .table {
   width: 100%;
-  padding: 5px;
+  padding: 7px 5px;
   display: table;
 }
 
@@ -128,6 +154,12 @@ h4.path-name {
 .table-cell {
   display: flex;
   color: $light-gray;
+  font-size: 13px;
+
+  p {
+    font-size: 11px;
+    line-height: 14px;
+  }
 }
 
 .table-cell-method,
@@ -137,16 +169,20 @@ h4.path-name {
 }
 
 .table-cell-method {
-  flex: 0 0 10%;
+  flex:0 0 62px;
+  align-items: flex-start;
+  padding-right: 10px;
+  box-sizing: border-box
 }
 
 .table-cell-auth {
-  flex: 0 0 20%;
+  flex: 0 0 60px;
 }
 
 .table-cell-route,
 .table-cell-description {
-  flex: 0 0 35%;
+  flex: 1 1 35%;
+  padding-right: 15px;
 }
 
 .table-cell-route {
@@ -161,10 +197,30 @@ h4.path-name {
   color: #8ED2C9;
 }
 
+.table-path {
+  transition: all 0.2s ease;
+
+  &:hover{
+    background-color: #EEF2F9;
+    transition: all 0.2s ease;
+  }
+}
+
 .path {
-  border: 1px solid #D8DDE4;
+  border-top: 1px solid #D8DDE4;
   width: 100%;
   margin: 0;
+}
+
+.path + .path {
+  margin-top: 0;
+}
+
+.path-label {
+  color: #959BA5;
+  font-family: $font-family-opensans;
+  font-weight: 400;
+  font-size: 11px;
 }
 
 .path-table {
@@ -175,13 +231,14 @@ h4.path-name {
   color: white;
   text-transform: uppercase;
   display: flex;
-  padding: 0 4px;
   text-align: center;
   letter-spacing: 1px;
   margin-left: 14px;
   word-break: break-all;
   font-size: 10px;
   align-items: center;
+  border-radius: 1px;
+  padding: 2px 3px;
 
   &.path-method-get {
     background-color: $get-method-color;
@@ -213,23 +270,38 @@ h4.path-name {
 .path-detail-container {
   background-color: #EEF2F9;
 
-  div {
+  > div {
     color: $dark-gray;
-    padding: 20px;
+    padding: 12px;
   }
 
   p {
-    line-height: 20px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #2E3239;
+    font-size: 12px;
+  }
+
+  p + p {
+    margin-top: 5px;
+  }
+
+  h4 {
+    color: #959BA5;
+    font-family: $font-family-opensans;
+    font-weight: 400;
+    font-size: 11px;
+    margin-bottom: 5px;
   }
 }
 
 .implementation-notes {
-  border-bottom: 1px solid $light-gray;
+  border-top: 1px solid #D8DDE4;
 }
 
 .parameters {
   background-color: white;
-  margin-top: 15px;
+  padding: 5px 7px;
 }
 
 .path-detail-container .schema {
@@ -308,7 +380,10 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #272822; }
+  background: #272822;
+  margin-top: 0;
+  border-radius: 0;
+}
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
