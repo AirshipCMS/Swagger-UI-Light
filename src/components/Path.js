@@ -30,9 +30,8 @@ class Path extends Component{
   render() {
     return (
       <div
-        className="path"
-        onClick={ this.togglePathDetail.bind(this) } >
-        <div class="table path-table">
+        className="path">
+        <div class="table path-table" onClick={ this.togglePathDetail.bind(this) } >
           <div class="table-row">
             <div class="table-cell table-cell-method">
               <div className={ this.props.path.expanded ? 'icon-arrow path-arrow open' : 'icon-arrow path-arrow closed' }></div>
