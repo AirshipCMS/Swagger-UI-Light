@@ -8,9 +8,7 @@ export class App extends Component {
 
     return <div>
       <header>
-        <div class="header-logo"></div>
-        <h1>{ this.info.title } { this.info.version }</h1>
-        <h2>{ this.info.description }</h2>
+        <h1>API Documentation</h1>
       </header>
       <div class="content-container">
       	<Explorer {...this.props}/>
