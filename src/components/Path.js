@@ -41,7 +41,7 @@ class Path extends Component{
               <h4 className="path-name">{ this.props.path.name }</h4>
             </div>
             <div class="table-cell table-cell-description">
-              <h4 className={ this.props.path.expanded ? 'hidden' : '' }>{ this.props.path.definition.description }</h4>
+              <p className={ this.props.path.expanded ? 'hidden' : '' }>{ this.props.path.definition.description }</p>
             </div>
             <div class="table-cell table-cell-auth">
               <h4 className={ this.auth }>{ this.auth }</h4>

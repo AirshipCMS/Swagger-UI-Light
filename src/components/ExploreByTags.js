@@ -34,6 +34,10 @@ class ExploreByTags extends Component {
     }
   };
 
+  formatDescription( description ) {
+    return description.replace('&amp;', 'and');
+  }
+
   render () {
 
     return (
@@ -45,7 +49,7 @@ class ExploreByTags extends Component {
                 <div className={ tag.expanded ? 'icon-arrow open' : 'icon-arrow closed' }></div>
                 <div class="tag-details">
                   <h2 class="tag-name">{ tag.name }</h2>
-                  <p>{ tag.description }</p>
+                  <p>{ tag.description.includes('&amp;') ? this.formatDescription(tag.description) : tag.description }</p>
                 </div>
               </div>
               <div className={ tag.pathsExpanded ? 'toggle-button open' : 'toggle-button close' } onClick={ this.expandAllPaths(tag) }>

@@ -30,8 +30,8 @@
     border-left: 4px solid $light-gray;
     border-bottom: 4px solid transparent;
     position: absolute;
-    left: 10px;
-    top: 18px;
+    left: 8px;
+    top: 16px;
   }
 
   &.open {
@@ -39,8 +39,8 @@
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     position: absolute;
-    top: 21px;
-    left: 8px;
+    top: 18px;
+    left: 6px;
   }
 
   &.path-arrow.closed {
@@ -73,7 +73,7 @@ header {
 .content-container {
   font-size: 14px;
   font-family: $font-family-opensans;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 
   p {
@@ -331,6 +331,7 @@ footer {
   background-color: #FFFFFF;
   font-family: $font-family-opensans;
   text-align: center;
+  padding: 10px 0;
 
   a {
     color: #d4d9e0;
@@ -338,6 +339,7 @@ footer {
     font-weight: 400;
     font-size: 11px;
     margin: 10px;
+    text-decoration: none;
   }
 
   a:hover {
@@ -352,6 +354,13 @@ footer {
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
  * @author ocodia
  */
+code {
+  font-size: 12px;
+}
+
+.path-detail-container .schema {
+    // remove background color
+}
 code[class*="language-"],
 pre[class*="language-"] {
   color: #f8f8f2;
@@ -380,9 +389,9 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #272822;
+  background: #454950;
+  border-radius: 2px;
   margin-top: 0;
-  border-radius: 0;
 }
 
 /* Inline code */
